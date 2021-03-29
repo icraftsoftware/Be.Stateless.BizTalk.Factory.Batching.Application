@@ -16,6 +16,7 @@
 
 #endregion
 
+using System.Linq;
 using Be.Stateless.BizTalk.Message;
 using Be.Stateless.BizTalk.Resources;
 using Be.Stateless.BizTalk.Schema;
@@ -43,12 +44,12 @@ namespace Be.Stateless.BizTalk.Maps.ToXml
 						.ConformingTo<Batch.Release>()
 						.WithStrictConformanceLevel());
 			var result = setup.Validate();
-			result.XmlNamespaceManager.AddNamespace("env", SchemaMetadata.For<Envelope>().TargetNamespace);
-			result.XmlNamespaceManager.AddNamespace("tns", SchemaMetadata.For<Batch.Release>().TargetNamespace);
+			result.NamespaceManager.AddNamespace("env", SchemaMetadata.For<Envelope>().TargetNamespace);
+			result.NamespaceManager.AddNamespace("tns", SchemaMetadata.For<Batch.Release>().TargetNamespace);
 
 			result.SelectSingleNode("/*")!.LocalName.Should().Be("Envelope");
-			result.Select("/env:Envelope/tns:ReleaseBatch").Should().HaveCount(3);
-			result.Select("/env:Envelope/*").Should().HaveCount(3);
+			result.Select("/env:Envelope/tns:ReleaseBatch").Cast<object>().Should().HaveCount(3);
+			result.Select("/env:Envelope/*").Cast<object>().Should().HaveCount(3);
 		}
 
 		[Fact]
@@ -65,12 +66,12 @@ namespace Be.Stateless.BizTalk.Maps.ToXml
 						.ConformingTo<Batch.Release>()
 						.WithStrictConformanceLevel());
 			var result = setup.Validate();
-			result.XmlNamespaceManager.AddNamespace("env", SchemaMetadata.For<Envelope>().TargetNamespace);
-			result.XmlNamespaceManager.AddNamespace("tns", SchemaMetadata.For<Batch.Release>().TargetNamespace);
+			result.NamespaceManager.AddNamespace("env", SchemaMetadata.For<Envelope>().TargetNamespace);
+			result.NamespaceManager.AddNamespace("tns", SchemaMetadata.For<Batch.Release>().TargetNamespace);
 
 			result.SelectSingleNode("/*")!.LocalName.Should().Be("Envelope");
-			result.Select("/env:Envelope/tns:ReleaseBatch").Should().HaveCount(3);
-			result.Select("/env:Envelope/*").Should().HaveCount(3);
+			result.Select("/env:Envelope/tns:ReleaseBatch").Cast<object>().Should().HaveCount(3);
+			result.Select("/env:Envelope/*").Cast<object>().Should().HaveCount(3);
 
 			var part = result.SelectSingleNode("/env:Envelope/tns:ReleaseBatch[3]");
 			part!.SelectSingleNode("tns:EnvelopeSpecName")!.Value.Should().Be(SchemaMetadata.For<Batch.Release>().DocumentSpec.DocSpecName);

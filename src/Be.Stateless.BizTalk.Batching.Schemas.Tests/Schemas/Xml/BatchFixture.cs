@@ -29,6 +29,7 @@ namespace Be.Stateless.BizTalk.Schemas.Xml
 	{
 		[Theory]
 		[InlineData("BatchContent.xml")]
+		[InlineData("BatchContentWithEnvelopeSpecName.xml")]
 		[InlineData("BatchContentWithEnvironmentTag.xml")]
 		[InlineData("BatchContentWithEnvironmentTagAndPartition.xml")]
 		[InlineData("BatchContentWithPartition.xml")]

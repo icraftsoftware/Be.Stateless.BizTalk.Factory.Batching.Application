@@ -5,10 +5,12 @@
     <RootNamespace>Be.Stateless.BizTalk</RootNamespace>
     <AssemblyName>Be.Stateless.BizTalk.Batching.Schemas.Tests</AssemblyName>
     <Description>Unit tests for BizTalk.Factory's batching application add-on's BizTalk Server schemas for general purpose BizTalk Server development.</Description>
+    <IsPublishable>false</IsPublishable>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="Resources\Message\BatchContent.xml" />
+    <None Remove="Resources\Message\BatchContentWithEnvelopeSpecName.xml" />
     <None Remove="Resources\Message\BatchContentWithEnvironmentTag.xml" />
     <None Remove="Resources\Message\BatchContentWithEnvironmentTagAndPartition.xml" />
     <None Remove="Resources\Message\BatchContentWithPartition.xml" />
@@ -19,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Resources\Message\BatchContentWithEnvelopeSpecName.xml" />
     <EmbeddedResource Include="Resources\Message\BatchContentWithEnvironmentTag.xml" />
     <EmbeddedResource Include="Resources\Message\BatchContentWithPartition.xml" />
     <EmbeddedResource Include="Resources\Message\BatchContentWithEnvironmentTagAndPartition.xml" />
@@ -30,19 +33,19 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Be.Stateless.BizTalk.Messaging" Version="2.0.21071.55312" />
-    <PackageReference Include="Be.Stateless.BizTalk.Schema.Unit" Version="2.0.21073.35244" />
-    <PackageReference Include="Be.Stateless.Stream.Unit" Version="2.0.21071.30174" />
-    <PackageReference Include="BizTalk.Server.2020.Runtime" Version="1.0.0">
+    <PackageReference Include="Be.Stateless.BizTalk.Messaging" Version="2.1.22025.26745" />
+    <PackageReference Include="Be.Stateless.BizTalk.Schema.Unit" Version="2.1.22025.39009" />
+    <PackageReference Include="Be.Stateless.Stream.Unit" Version="2.1.22025.21947" />
+    <PackageReference Include="BizTalk.Server.2020.Runtime" Version="1.0.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="coverlet.msbuild" Version="2.9.0">
+    <PackageReference Include="coverlet.msbuild" Version="3.1.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="FluentAssertions" Version="5.10.3" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.1" />
+    <PackageReference Include="FluentAssertions" Version="6.3.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.0.0" />
     <PackageReference Include="Moq" Version="4.16.1" />
     <PackageReference Include="xunit.core" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">

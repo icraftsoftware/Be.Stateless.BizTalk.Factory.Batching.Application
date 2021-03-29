@@ -16,8 +16,8 @@
 
 #endregion
 
+using Be.Stateless.BizTalk.Activity.Tracking;
 using Be.Stateless.BizTalk.Schemas.Xml;
-using Be.Stateless.BizTalk.Tracking;
 
 namespace Be.Stateless.BizTalk.Stream.Extensions
 {

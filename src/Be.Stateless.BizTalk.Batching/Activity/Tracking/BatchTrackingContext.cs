@@ -16,7 +16,7 @@
 
 #endregion
 
-namespace Be.Stateless.BizTalk.Tracking
+namespace Be.Stateless.BizTalk.Activity.Tracking
 {
 	/// <summary>
 	/// Simple structure that holds the BAM activity identifiers of the various steps that were involved to build a batch
