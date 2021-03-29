@@ -9,21 +9,14 @@
 
   <PropertyGroup>
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/icraftsoftware/Be.Stateless.BizTalk.Batching</RepositoryUrl>
+    <RepositoryUrl>https://github.com/icraftsoftware/Be.Stateless.BizTalk.Factory.Batching.Application</RepositoryUrl>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
   </PropertyGroup>
 
-  <PropertyGroup>
-    <GeneratePackageOnBuild Condition=" '$(GeneratePackageOnBuild)' == '' ">false</GeneratePackageOnBuild>
-    <IsPackable>true</IsPackable>
-    <PackageId>$(AssemblyName)</PackageId>
-    <PackageDescription>$(Description)</PackageDescription>
-    <PackageProjectUrl>$(RepositoryUrl)</PackageProjectUrl>
-    <PackageTags>BizTalk library batching</PackageTags>
-    <IncludeSymbols>true</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-  </PropertyGroup>
+   <PropertyGroup>
+      <IsPackable>false</IsPackable>
+   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <DocumentationFile>bin\Release\$(AssemblyName).xml</DocumentationFile>
@@ -36,7 +29,7 @@
 
   <ItemGroup>
     <PackageReference Include="Be.Stateless.BizTalk.Abstractions" Version="2.0.21007.39752" />
-    <PackageReference Include="Be.Stateless.BizTalk.Activity.Tracking" Version="2.0.21074.38637" />
+    <PackageReference Include="Be.Stateless.BizTalk.Activity.Tracking" Version="2.0.21085.26995" />
     <PackageReference Include="Be.Stateless.BizTalk.Stream" Version="2.0.21071.54649" />
     <PackageReference Include="BizTalk.Server.2020.Runtime" Version="1.0.0">
       <PrivateAssets>all</PrivateAssets>
@@ -50,6 +43,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Be.Stateless.BizTalk.Batching.Maps\Be.Stateless.BizTalk.Batching.Maps.csproj" />
     <ProjectReference Include="..\Be.Stateless.BizTalk.Batching.Schemas\Be.Stateless.BizTalk.Batching.Schemas.csproj" />
   </ItemGroup>
 

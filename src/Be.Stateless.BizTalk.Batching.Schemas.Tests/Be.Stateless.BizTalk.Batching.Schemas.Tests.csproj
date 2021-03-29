@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <None Remove="Resources\Message\BatchContent.xml" />
+    <None Remove="Resources\Message\BatchContentWithEnvelopeSpecName.xml" />
     <None Remove="Resources\Message\BatchContentWithEnvironmentTag.xml" />
     <None Remove="Resources\Message\BatchContentWithEnvironmentTagAndPartition.xml" />
     <None Remove="Resources\Message\BatchContentWithPartition.xml" />
@@ -19,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Resources\Message\BatchContentWithEnvelopeSpecName.xml" />
     <EmbeddedResource Include="Resources\Message\BatchContentWithEnvironmentTag.xml" />
     <EmbeddedResource Include="Resources\Message\BatchContentWithPartition.xml" />
     <EmbeddedResource Include="Resources\Message\BatchContentWithEnvironmentTagAndPartition.xml" />
@@ -30,8 +32,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Be.Stateless.BizTalk.Messaging" Version="2.0.21071.55312" />
-    <PackageReference Include="Be.Stateless.BizTalk.Schema.Unit" Version="2.0.21073.35244" />
+    <PackageReference Include="Be.Stateless.BizTalk.Messaging" Version="2.0.21084.29081" />
+    <PackageReference Include="Be.Stateless.BizTalk.Schema.Unit" Version="2.0.21084.39753" />
     <PackageReference Include="Be.Stateless.Stream.Unit" Version="2.0.21071.30174" />
     <PackageReference Include="BizTalk.Server.2020.Runtime" Version="1.0.0">
       <PrivateAssets>all</PrivateAssets>

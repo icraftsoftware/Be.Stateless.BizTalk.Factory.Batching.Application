@@ -8,9 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Be.Stateless.BizTalk.Activity.Tracking" Version="2.0.21074.38637" />
-    <PackageReference Include="Be.Stateless.BizTalk.Messaging.Unit" Version="2.0.21071.55312" />
-    <PackageReference Include="Be.Stateless.BizTalk.Transform.Unit" Version="2.0.21071.55824" />
+    <PackageReference Include="Be.Stateless.BizTalk.Activity.Tracking" Version="2.0.21085.26995" />
+    <PackageReference Include="Be.Stateless.BizTalk.Messaging.Unit" Version="2.0.21084.29081" />
+    <PackageReference Include="Be.Stateless.BizTalk.Transform.Unit" Version="2.0.21082.38395" />
     <PackageReference Include="BizTalk.Server.2020.Runtime" Version="1.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

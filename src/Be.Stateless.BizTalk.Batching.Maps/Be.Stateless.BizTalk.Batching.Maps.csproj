@@ -9,20 +9,13 @@
 
   <PropertyGroup>
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/icraftsoftware/Be.Stateless.BizTalk.Batching</RepositoryUrl>
+    <RepositoryUrl>https://github.com/icraftsoftware/Be.Stateless.BizTalk.Factory.Batching.Application</RepositoryUrl>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
   </PropertyGroup>
 
   <PropertyGroup>
-    <GeneratePackageOnBuild Condition=" '$(GeneratePackageOnBuild)' == '' ">false</GeneratePackageOnBuild>
-    <IsPackable>true</IsPackable>
-    <PackageId>$(AssemblyName)</PackageId>
-    <PackageDescription>$(Description)</PackageDescription>
-    <PackageProjectUrl>$(RepositoryUrl)</PackageProjectUrl>
-    <PackageTags>BizTalk library batching maps</PackageTags>
-    <IncludeSymbols>true</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
@@ -35,8 +28,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Be.Stateless.BizTalk.Schemas" Version="2.0.21073.35244" />
-    <PackageReference Include="BizTalk.Server.2020.Build" Version="2.0.21073.33732" Condition="'$(TF_BUILD)' != 'true'">
+    <PackageReference Include="Be.Stateless.BizTalk.Schemas" Version="2.0.21084.39753" />
+    <PackageReference Include="BizTalk.Server.2020.Build" Version="2.0.21086.1066" Condition="'$(TF_BUILD)' != 'true'">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>

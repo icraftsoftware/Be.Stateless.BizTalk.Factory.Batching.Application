@@ -16,6 +16,8 @@
 
 #endregion
 
+using System;
+using System.Diagnostics.CodeAnalysis;
 using Be.Stateless.BizTalk.Schemas.Xml;
 using Microsoft.BizTalk.Streaming;
 
@@ -23,6 +25,10 @@ namespace Be.Stateless.BizTalk.Stream.Extensions
 {
 	internal static class BatchContentStreamExtensions
 	{
+		[SuppressMessage("ReSharper", "MemberCanBePrivate.Global", Justification = "Mock Injection Hook")]
+		[SuppressMessage("ReSharper", "AutoPropertyCanBeMadeGetOnly.Global", Justification = "Mock Injection Hook")]
+		internal static Func<System.IO.Stream, IProbeBatchContentStream> BatchContentStreamProberFactory { get; set; } = stream => new BatchContentProber(stream.Probe());
+
 		/// <summary>
 		/// Support for <see cref="Batch.Content"/> <see cref="System.IO.Stream"/> probing.
 		/// </summary>
@@ -39,7 +45,7 @@ namespace Be.Stateless.BizTalk.Stream.Extensions
 		/// <seealso cref="StreamExtensions.Probe"/>
 		internal static IProbeBatchContentStream ProbeBatchContent(this System.IO.Stream stream)
 		{
-			return new BatchContentProber(stream.Probe());
+			return BatchContentStreamProberFactory(stream);
 		}
 	}
 }
