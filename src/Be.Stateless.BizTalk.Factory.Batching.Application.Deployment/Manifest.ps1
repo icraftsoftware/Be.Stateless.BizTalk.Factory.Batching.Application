@@ -27,16 +27,22 @@ param(
    [Parameter(Mandatory = $false)]
    [ValidateNotNullOrEmpty()]
    [string]
+   $ManagementServer = $env:COMPUTERNAME,
+
+   [Parameter(Mandatory = $false)]
+   [ValidateNotNullOrEmpty()]
+   [string]
    $ProcessingServer = $env:COMPUTERNAME
 )
 
 Set-StrictMode -Version Latest
 
-ApplicationManifest -Name BizTalk.Factory.Batching -Description 'BizTalk.Factory''s batching application add-on for general purpose BizTalk Server development.' -Build {
+ApplicationManifest -Name BizTalk.Factory.Batching -Description 'BizTalk.Factory''s batching application add-on for general purpose BizTalk Server development.' -Reference BizTalk.Factory -Build {
    Assembly -Path (Get-ResourceItem -Name Be.Stateless.BizTalk.Batching)
    Binding -Path (Get-ResourceItem -Name Be.Stateless.BizTalk.Factory.Batching.Binding) -EnvironmentSettingOverridesType $EnvironmentSettingOverridesType
    Map -Path (Get-ResourceItem -Name Be.Stateless.BizTalk.Batching.Maps)
+   ProcessDescriptor -Path (Get-ResourceItem -Name Be.Stateless.BizTalk.Batching) -DatabaseServer $ManagementServer
    Schema -Path (Get-ResourceItem -Name Be.Stateless.BizTalk.Batching.Schemas)
-   SqlDeploymentScript -Path (Get-ResourceItem -Extension .sql -Name Create.Batching.Objects) -Server $ProcessingServer
-   SqlUndeploymentScript -Path (Get-ResourceItem -Extension .sql -Name Drop.Batching.Objects) -Server $ProcessingServer
+   SqlDeploymentScript -Path (Get-ResourceItem -Extension .sql -Name Create.BatchingObjects) -Server $ProcessingServer
+   SqlUndeploymentScript -Path (Get-ResourceItem -Extension .sql -Name Drop.BatchingObjects) -Server $ProcessingServer
 }

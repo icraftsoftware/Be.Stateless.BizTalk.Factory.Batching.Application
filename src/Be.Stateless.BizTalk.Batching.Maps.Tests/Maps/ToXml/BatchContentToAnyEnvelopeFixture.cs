@@ -43,8 +43,8 @@ namespace Be.Stateless.BizTalk.Maps.ToXml
 						.ConformingTo<Batch.Release>()
 						.WithStrictConformanceLevel());
 			var result = setup.Validate();
-			result.XmlNamespaceManager.AddNamespace("env", SchemaMetadata.For<Envelope>().TargetNamespace);
-			result.XmlNamespaceManager.AddNamespace("tns", SchemaMetadata.For<Batch.Release>().TargetNamespace);
+			result.NamespaceManager.AddNamespace("env", SchemaMetadata.For<Envelope>().TargetNamespace);
+			result.NamespaceManager.AddNamespace("tns", SchemaMetadata.For<Batch.Release>().TargetNamespace);
 
 			result.SelectSingleNode("/*")!.LocalName.Should().Be("Envelope");
 			result.Select("/env:Envelope/tns:ReleaseBatch").Should().HaveCount(3);
@@ -65,8 +65,8 @@ namespace Be.Stateless.BizTalk.Maps.ToXml
 						.ConformingTo<Batch.Release>()
 						.WithStrictConformanceLevel());
 			var result = setup.Validate();
-			result.XmlNamespaceManager.AddNamespace("env", SchemaMetadata.For<Envelope>().TargetNamespace);
-			result.XmlNamespaceManager.AddNamespace("tns", SchemaMetadata.For<Batch.Release>().TargetNamespace);
+			result.NamespaceManager.AddNamespace("env", SchemaMetadata.For<Envelope>().TargetNamespace);
+			result.NamespaceManager.AddNamespace("tns", SchemaMetadata.For<Batch.Release>().TargetNamespace);
 
 			result.SelectSingleNode("/*")!.LocalName.Should().Be("Envelope");
 			result.Select("/env:Envelope/tns:ReleaseBatch").Should().HaveCount(3);

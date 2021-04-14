@@ -28,10 +28,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Be.Stateless.BizTalk.Abstractions" Version="2.0.21007.39752" />
-    <PackageReference Include="Be.Stateless.BizTalk.Activity.Tracking" Version="2.0.21085.26995" />
-    <PackageReference Include="Be.Stateless.BizTalk.Stream" Version="2.0.21071.54649" />
-    <PackageReference Include="BizTalk.Server.2020.Runtime" Version="1.0.0">
+    <PackageReference Include="Be.Stateless.BizTalk.Abstractions" Version="2.0.21115.28670" />
+    <PackageReference Include="Be.Stateless.BizTalk.Activity.Tracking" Version="2.0.21104.22414" />
+    <PackageReference Include="Be.Stateless.BizTalk.Stream" Version="2.0.21104.44616" />
+    <PackageReference Include="BizTalk.Server.2020.Runtime" Version="1.0.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
