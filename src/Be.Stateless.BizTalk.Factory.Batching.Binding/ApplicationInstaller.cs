@@ -22,6 +22,7 @@ using Be.Stateless.BizTalk.Install;
 
 namespace Be.Stateless.BizTalk
 {
+	[SuppressMessage("ReSharper", "UnusedType.Global", Justification = "Installer.")]
 	[RunInstaller(true)]
 	public class ApplicationInstaller : ApplicationBindingInstaller<ApplicationBinding> { }
 }
