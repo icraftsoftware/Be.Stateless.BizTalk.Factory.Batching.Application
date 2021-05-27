@@ -83,7 +83,7 @@ namespace Be.Stateless.BizTalk.MicroComponent
 		/// Level of tracking to use, or the extent of message data to capture.
 		/// </summary>
 		[SuppressMessage("ReSharper", "MemberCanBePrivate.Global", Justification = "Public API.")]
-		[SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Global", Justification = "Public API.")]
+		[SuppressMessage("ReSharper", "UnusedMember.Global", Justification = "Public API.")]
 		public ActivityTrackingModes TrackingModes
 		{
 			get => _defaultActivityTracker.TrackingModes;

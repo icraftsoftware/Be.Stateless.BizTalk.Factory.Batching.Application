@@ -1,10 +1,10 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net48</TargetFramework>
     <RootNamespace>Be.Stateless.BizTalk</RootNamespace>
-    <AssemblyName>Be.Stateless.BizTalk.Batching.Maps</AssemblyName>
-    <Description>BizTalk.Factory's batching application add-on's BizTalk Server maps for general purpose BizTalk Server development.</Description>
+    <AssemblyName>Be.Stateless.BizTalk.Batching.Unit</AssemblyName>
+    <Description>BizTalk.Factory's batching application unit test library for general purpose Biztalk Server development.</Description>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -20,7 +20,7 @@
     <PackageId>$(AssemblyName)</PackageId>
     <PackageDescription>$(Description)</PackageDescription>
     <PackageProjectUrl>$(RepositoryUrl)</PackageProjectUrl>
-    <PackageTags>BizTalk library claim check maps</PackageTags>
+    <PackageTags>BizTalk library batching test unit</PackageTags>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
@@ -34,25 +34,23 @@
     <None Include="..\..\.settings\.editorconfig" Link=".editorconfig" />
   </ItemGroup>
 
+
   <ItemGroup>
-    <PackageReference Include="Be.Stateless.BizTalk.Schemas" Version="2.0.21146.24032" />
-    <PackageReference Include="BizTalk.Server.2020.Build" Version="2.0.21119.28877" Condition="'$(TF_BUILD)' != 'true'">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
+    <PackageReference Include="Be.Stateless.BizTalk.Messaging" Version="2.0.21104.45537" />
+    <PackageReference Include="Be.Stateless.Extensions" Version="2.0.21005.38790" />
     <PackageReference Include="BizTalk.Server.2020.Runtime" Version="1.0.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="5.0.3">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Be.Stateless.BizTalk.Batching.Schemas\Be.Stateless.BizTalk.Batching.Schemas.csproj" />
+    <ProjectReference Include="..\Be.Stateless.BizTalk.Batching\Be.Stateless.BizTalk.Batching.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Configuration" />
   </ItemGroup>
 
 </Project>
