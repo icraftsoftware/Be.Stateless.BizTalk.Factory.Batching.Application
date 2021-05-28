@@ -41,7 +41,7 @@ namespace Be.Stateless.BizTalk.Unit
 
 		public class Part
 		{
-			public int EnvelopeSpecName { get; internal set; }
+			public string EnvelopeSpecName { get; internal set; }
 
 			public string MessagingStepActivityId { get; internal set; }
 
@@ -84,7 +84,7 @@ namespace Be.Stateless.BizTalk.Unit
 					return command.ExecuteReader().Cast<IDataRecord>()
 						.Select(
 							r => new Part {
-								EnvelopeSpecName = (int) r[nameof(Part.EnvelopeSpecName)],
+								EnvelopeSpecName = (string) r[nameof(Part.EnvelopeSpecName)],
 								MessagingStepActivityId = (string) r[nameof(Part.MessagingStepActivityId)],
 								Partition = (string) r[nameof(Part.Partition)]
 							});
