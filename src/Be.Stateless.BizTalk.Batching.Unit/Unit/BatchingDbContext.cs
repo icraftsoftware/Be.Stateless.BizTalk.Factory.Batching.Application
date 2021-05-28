@@ -87,7 +87,8 @@ namespace Be.Stateless.BizTalk.Unit
 								EnvelopeSpecName = (string) r[nameof(Part.EnvelopeSpecName)],
 								MessagingStepActivityId = (string) r[nameof(Part.MessagingStepActivityId)],
 								Partition = (string) r[nameof(Part.Partition)]
-							});
+							})
+						.ToArray();
 				}
 			}
 		}
