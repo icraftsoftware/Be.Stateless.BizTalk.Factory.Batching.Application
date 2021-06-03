@@ -26,7 +26,7 @@ using static Be.Stateless.Unit.DelegateFactory;
 
 namespace Be.Stateless.BizTalk
 {
-	public class ApplicationBindingFixture : Dsl.Binding.ApplicationBindingFixture<ApplicationBinding>
+	public class ApplicationBindingFixture : Unit.Dsl.Binding.ApplicationBindingFixture<ApplicationBinding>
 	{
 		[SkippableTheory]
 		[InlineData("DEV")]
