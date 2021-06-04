@@ -16,6 +16,7 @@
 
 #endregion
 
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using System.Xml;
 using Be.Stateless.BizTalk.Message;
@@ -26,8 +27,10 @@ using Microsoft.XLANGs.BaseTypes;
 
 namespace Be.Stateless.BizTalk.Unit.Message
 {
+	[SuppressMessage("ReSharper", "UnusedType.Global", Justification = "Public API.")]
 	public class BatchFactory
 	{
+		[SuppressMessage("ReSharper", "UnusedMember.Global", Justification = "Public API.")]
 		public static XmlDocument CreateReleaseFor<TSchema>(string partition = null)
 			where TSchema : SchemaBase
 		{

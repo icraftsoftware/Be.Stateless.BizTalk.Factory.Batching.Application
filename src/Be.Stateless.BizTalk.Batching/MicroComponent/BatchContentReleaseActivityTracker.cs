@@ -42,6 +42,7 @@ namespace Be.Stateless.BizTalk.MicroComponent
 
 		#region IMicroComponent Members
 
+		[SuppressMessage("ReSharper", "InvertIf")]
 		public IBaseMessage Execute(IPipelineContext pipelineContext, IBaseMessage message)
 		{
 			if (TrackingModes != ActivityTrackingModes.None)
