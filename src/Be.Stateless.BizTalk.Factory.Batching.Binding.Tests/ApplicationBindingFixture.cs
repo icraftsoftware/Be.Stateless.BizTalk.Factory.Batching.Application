@@ -22,7 +22,7 @@ using System.Text;
 using Be.Stateless.BizTalk.Explorer;
 using FluentAssertions;
 using Xunit;
-using static Be.Stateless.Unit.DelegateFactory;
+using static FluentAssertions.FluentActions;
 
 namespace Be.Stateless.BizTalk
 {
@@ -34,7 +34,8 @@ namespace Be.Stateless.BizTalk
 		public void GenerateApplicationBinding(string targetEnvironment)
 		{
 			Skip.IfNot(BizTalkServerGroup.IsConfigured);
-			Action(() => GenerateApplicationBindingForTargetEnvironment(targetEnvironment)).Should().NotThrow();
+
+			Invoking(() => GenerateApplicationBindingForTargetEnvironment(targetEnvironment)).Should().NotThrow();
 		}
 
 		[Theory(Skip = "To be run manually.")]

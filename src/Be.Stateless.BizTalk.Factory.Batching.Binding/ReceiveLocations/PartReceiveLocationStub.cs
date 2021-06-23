@@ -58,7 +58,7 @@ namespace Be.Stateless.BizTalk
 					a.FileMask = "*.xml.part";
 					a.ReceiveFolder = @"C:\Files\Drops\BizTalk.Factory\In";
 				});
-			Transport.Host = Platform.Settings.ReceivingHost;
+			Transport.Host = Platform.Settings.HostResolutionPolicy;
 		}
 	}
 }

@@ -73,7 +73,7 @@ namespace Be.Stateless.BizTalk
 						}
 					};
 				});
-			Transport.Host = Platform.Settings.ReceivingHost;
+			Transport.Host = Platform.Settings.HostResolutionPolicy;
 		}
 
 		private TimeSpan BatchReleasePollingInterval => DeploymentContext.TargetEnvironment.IsDevelopmentOrBuild()

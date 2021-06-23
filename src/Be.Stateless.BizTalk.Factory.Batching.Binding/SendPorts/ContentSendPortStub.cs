@@ -42,7 +42,7 @@ namespace Be.Stateless.BizTalk
 						pc => { pc.Components = new IMicroComponent[] { new ActivityTracker() }; });
 				});
 			Transport.Adapter = new FileAdapter.Outbound(a => { a.DestinationFolder = @"C:\Files\Drops\BizTalk.Factory\Batch"; });
-			Transport.Host = Platform.Settings.TransmittingHost;
+			Transport.Host = Platform.Settings.HostResolutionPolicy;
 			Transport.RetryPolicy = RetryPolicy.RealTime;
 			Filter = new Filter(() => BtsProperties.ReceivePortName == ApplicationBinding.ReceivePorts.Find<ContentReceivePort>().Name);
 		}

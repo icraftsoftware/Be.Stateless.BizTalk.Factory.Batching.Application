@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net48</TargetFramework>
@@ -36,7 +36,7 @@
 
 
   <ItemGroup>
-    <PackageReference Include="Be.Stateless.BizTalk.Messaging" Version="2.0.21104.45537" />
+    <PackageReference Include="Be.Stateless.BizTalk.Messaging" Version="2.0.21171.58430" />
     <PackageReference Include="Be.Stateless.Extensions" Version="2.0.21005.38790" />
     <PackageReference Include="BizTalk.Server.2020.Runtime" Version="1.0.1">
       <PrivateAssets>all</PrivateAssets>

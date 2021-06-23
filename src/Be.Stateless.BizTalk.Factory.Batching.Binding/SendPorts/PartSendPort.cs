@@ -60,7 +60,7 @@ namespace Be.Stateless.BizTalk
 					a.IsolationLevel = IsolationLevel.ReadCommitted;
 					a.StaticAction = "TypedProcedure/dbo/usp_batch_AddPart";
 				});
-			Transport.Host = Platform.Settings.TransmittingHost;
+			Transport.Host = Platform.Settings.HostResolutionPolicy;
 			Transport.RetryPolicy = RetryPolicy.ShortRunning;
 			Filter = new Filter(() => BatchProperties.EnvelopeSpecName != null);
 		}
