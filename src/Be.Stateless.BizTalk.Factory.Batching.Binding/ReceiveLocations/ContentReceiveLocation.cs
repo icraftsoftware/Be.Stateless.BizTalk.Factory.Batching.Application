@@ -51,7 +51,7 @@ namespace Be.Stateless.BizTalk
 				});
 			Transport.Adapter = new WcfSqlAdapter.Inbound(
 				a => {
-					a.Address = new SqlAdapterConnectionUri {
+					a.Address = new() {
 						InboundId = "AvailableBatches",
 						InitialCatalog = "BizTalkFactoryTransientStateDb",
 						Server = Platform.Settings.ProcessingDatabaseServer,

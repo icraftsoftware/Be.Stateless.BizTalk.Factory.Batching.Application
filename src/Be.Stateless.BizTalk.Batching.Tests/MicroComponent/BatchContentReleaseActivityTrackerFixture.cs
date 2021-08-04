@@ -40,7 +40,7 @@ namespace Be.Stateless.BizTalk.MicroComponent
 		public BatchContentReleaseActivityTrackerFixture()
 		{
 			_batchReleaseProcessActivityTrackerFactory = BatchReleaseProcessActivityTracker.Factory;
-			BatchReleaseProcessActivityTrackerMock = new Mock<BatchReleaseProcessActivityTracker>(PipelineContextMock.Object, MessageMock.Object);
+			BatchReleaseProcessActivityTrackerMock = new(PipelineContextMock.Object, MessageMock.Object);
 			BatchReleaseProcessActivityTracker.Factory = (_, _) => BatchReleaseProcessActivityTrackerMock.Object;
 		}
 

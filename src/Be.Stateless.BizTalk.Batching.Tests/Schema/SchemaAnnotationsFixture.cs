@@ -46,10 +46,12 @@ namespace Be.Stateless.BizTalk.Schema
 			var schemaMetadata = SchemaMetadata.For<Batch.Content>();
 			schemaMetadata.GetEnvelopeMap().Should().BeNull();
 			schemaMetadata.GetPropertyExtractors().Should().BeEquivalentTo(
-				new XPathExtractor(BizTalkFactoryProperties.EnvironmentTag.QName, "/*/*[local-name()='EnvironmentTag']", ExtractionMode.Promote),
-				new XPathExtractor(TrackingProperties.Value1.QName, "/*/*[local-name()='EnvelopeSpecName']", ExtractionMode.Write),
-				new XPathExtractor(TrackingProperties.Value2.QName, "/*/*[local-name()='EnvironmentTag']", ExtractionMode.Write),
-				new XPathExtractor(TrackingProperties.Value3.QName, "/*/*[local-name()='Partition']", ExtractionMode.Write));
+				new[] {
+					new XPathExtractor(BizTalkFactoryProperties.EnvironmentTag.QName, "/*/*[local-name()='EnvironmentTag']", ExtractionMode.Promote),
+					new XPathExtractor(TrackingProperties.Value1.QName, "/*/*[local-name()='EnvelopeSpecName']", ExtractionMode.Write),
+					new XPathExtractor(TrackingProperties.Value2.QName, "/*/*[local-name()='EnvironmentTag']", ExtractionMode.Write),
+					new XPathExtractor(TrackingProperties.Value3.QName, "/*/*[local-name()='Partition']", ExtractionMode.Write)
+				});
 		}
 
 		[Fact]

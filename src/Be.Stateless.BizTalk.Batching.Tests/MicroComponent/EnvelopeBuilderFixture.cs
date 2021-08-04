@@ -55,7 +55,7 @@ namespace Be.Stateless.BizTalk.MicroComponent
 			var envelopeStream = new StringStream(EnvelopeFactory.Create<Envelope>().OuterXml);
 			var batchContentStream = MessageBodyFactory.Create<Batch.Content>(MessageBody.Samples.LoadString("Message.BatchContent.xml")).AsStream();
 			var transformedStream = new[] { envelopeStream, batchContentStream }.Transform().Apply(typeof(BatchContentToAnyEnvelope), new UTF8Encoding(false));
-			using (var expectedReader = XmlReader.Create(transformedStream, new XmlReaderSettings { CloseInput = true }))
+			using (var expectedReader = XmlReader.Create(transformedStream, new() { CloseInput = true }))
 			{
 				expectedReader.Read();
 				expectedEnvelopeContent = expectedReader.ReadOuterXml();
@@ -70,7 +70,7 @@ namespace Be.Stateless.BizTalk.MicroComponent
 
 				var sut = new EnvelopeBuilder();
 				sut.Execute(PipelineContextMock.Object, MessageMock.Object);
-				using (var actualReader = XmlReader.Create(MessageMock.Object.BodyPart.Data, new XmlReaderSettings { CloseInput = true, IgnoreWhitespace = true }))
+				using (var actualReader = XmlReader.Create(MessageMock.Object.BodyPart.Data, new() { CloseInput = true, IgnoreWhitespace = true }))
 				{
 					actualReader.Read();
 					var actualEnvelopeContent = actualReader.ReadOuterXml();

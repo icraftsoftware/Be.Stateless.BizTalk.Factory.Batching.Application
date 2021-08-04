@@ -41,7 +41,7 @@ namespace Be.Stateless.BizTalk.Activity.Tracking.Messaging
 
 		[SuppressMessage("ReSharper", "MemberCanBePrivate.Global", Justification = "internal for testing purposes.")]
 		internal static Func<IPipelineContext, IBaseMessage, BatchReleaseProcessActivityTracker> Factory { get; set; } =
-			(pipelineContext, message) => new BatchReleaseProcessActivityTracker(pipelineContext, message);
+			(pipelineContext, message) => new(pipelineContext, message);
 
 		#endregion
 

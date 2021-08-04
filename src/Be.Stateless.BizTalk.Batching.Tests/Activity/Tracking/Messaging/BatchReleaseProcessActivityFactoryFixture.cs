@@ -31,7 +31,7 @@ namespace Be.Stateless.BizTalk.Activity.Tracking.Messaging
 
 		public BatchReleaseProcessActivityFactoryFixture()
 		{
-			PipelineContextMock = new Mock<IPipelineContext>();
+			PipelineContextMock = new();
 			PipelineContextMock.Setup(pc => pc.GetEventStream()).Returns(new Mock<EventStream>().Object);
 		}
 

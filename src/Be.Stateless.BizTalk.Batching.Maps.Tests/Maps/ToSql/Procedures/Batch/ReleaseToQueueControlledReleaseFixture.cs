@@ -17,6 +17,7 @@
 #endregion
 
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Be.Stateless.BizTalk.ContextProperties;
 using Be.Stateless.BizTalk.Message;
 using Be.Stateless.BizTalk.Resources;
@@ -46,7 +47,7 @@ namespace Be.Stateless.BizTalk.Maps.ToSql.Procedures.Batch
 					.OutputsXml(output => output.ConformingTo<QueueControlledRelease>().WithStrictConformanceLevel());
 				var result = setup.Validate();
 				result.SelectSingleNode("//usp:envelopeSpecName")!.Value.Should().Be(SchemaMetadata.For<Envelope>().DocumentSpec.DocSpecStrongName);
-				result.Select("//usp:partition").Should().BeEmpty();
+				result.Select("//usp:partition").Cast<object>().Should().BeEmpty();
 			}
 		}
 
@@ -116,7 +117,7 @@ namespace Be.Stateless.BizTalk.Maps.ToSql.Procedures.Batch
 					.OutputsXml(output => output.ConformingTo<QueueControlledRelease>().WithStrictConformanceLevel());
 				var result = setup.Validate();
 				result.SelectSingleNode("//usp:envelopeSpecName")!.Value.Should().Be(SchemaMetadata.For<Envelope>().DocumentSpec.DocSpecStrongName);
-				result.Select("//usp:partition").Should().BeEmpty();
+				result.Select("//usp:partition").Cast<object>().Should().BeEmpty();
 				result.SelectSingleNode("//usp:processActivityId")!.Value.Should().Be("D4D3A8E583024BAC9D35EC98C5422E82");
 			}
 		}

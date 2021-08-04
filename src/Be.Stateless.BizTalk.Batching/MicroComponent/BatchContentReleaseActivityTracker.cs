@@ -37,7 +37,7 @@ namespace Be.Stateless.BizTalk.MicroComponent
 	{
 		public BatchContentReleaseActivityTracker()
 		{
-			_defaultActivityTracker = new ActivityTracker();
+			_defaultActivityTracker = new();
 		}
 
 		#region IMicroComponent Members

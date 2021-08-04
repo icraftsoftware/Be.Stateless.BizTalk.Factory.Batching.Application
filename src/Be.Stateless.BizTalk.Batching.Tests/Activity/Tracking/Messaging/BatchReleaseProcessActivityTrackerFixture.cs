@@ -36,14 +36,14 @@ namespace Be.Stateless.BizTalk.Activity.Tracking.Messaging
 
 		public BatchReleaseProcessActivityTrackerFixture()
 		{
-			MessageMock = new Unit.Message.Mock<IBaseMessage>();
+			MessageMock = new();
 			MessageMock.Setup(m => m.GetProperty(TrackingProperties.MessagingStepActivityId)).Returns(ActivityId.NewActivityId());
 
-			PipelineContextMock = new Mock<IPipelineContext>();
+			PipelineContextMock = new();
 
-			ProcessMock = new Mock<BatchReleaseProcess>("pseudo-process-activity-id", new Mock<EventStream>().Object);
+			ProcessMock = new("pseudo-process-activity-id", new Mock<EventStream>().Object);
 
-			ActivityFactory = new Mock<IBatchReleaseProcessActivityFactory>();
+			ActivityFactory = new();
 			ActivityFactory.Setup(af => af.CreateProcess(It.IsAny<IBaseMessage>(), It.IsAny<string>())).Returns(ProcessMock.Object);
 			ActivityFactory.Setup(af => af.FindProcess(It.IsAny<string>())).Returns(ProcessMock.Object);
 
@@ -62,7 +62,7 @@ namespace Be.Stateless.BizTalk.Activity.Tracking.Messaging
 		public void TrackActivityWhenBatchTrackingContextIsEmpty()
 		{
 			var sut = BatchReleaseProcessActivityTracker.Create(PipelineContextMock.Object, MessageMock.Object);
-			sut.TrackActivity(new BatchTrackingContext());
+			sut.TrackActivity(new());
 
 			ActivityFactory.Verify(af => af.CreateProcess(It.IsAny<IBaseMessage>(), It.IsAny<string>()), Times.Never);
 			ActivityFactory.Verify(af => af.FindProcess(It.IsAny<string>()), Times.Never);

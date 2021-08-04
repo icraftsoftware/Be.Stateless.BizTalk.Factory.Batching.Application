@@ -35,7 +35,7 @@ namespace Be.Stateless.BizTalk.Unit.Message
 			where TSchema : SchemaBase
 		{
 			var builder = new StringBuilder();
-			using (var writer = XmlWriter.Create(builder, new XmlWriterSettings { Indent = false, OmitXmlDeclaration = true, Encoding = Encoding.UTF8 }))
+			using (var writer = XmlWriter.Create(builder, new() { Indent = false, OmitXmlDeclaration = true, Encoding = Encoding.UTF8 }))
 			{
 				const string prefix = "ns";
 				var schemaMetadata = SchemaMetadata.For<Schemas.Xml.Batch.Release>();

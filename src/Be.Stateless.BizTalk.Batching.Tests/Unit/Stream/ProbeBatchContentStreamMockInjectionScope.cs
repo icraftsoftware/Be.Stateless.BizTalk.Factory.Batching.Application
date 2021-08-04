@@ -27,7 +27,7 @@ namespace Be.Stateless.BizTalk.Unit.Stream
 		public ProbeBatchContentStreamMockInjectionScope()
 		{
 			_proberFactory = BatchContentStreamExtensions.BatchContentStreamProberFactory;
-			Mock = new Mock<IProbeBatchContentStream>();
+			Mock = new();
 			BatchContentStreamExtensions.BatchContentStreamProberFactory = _ => Mock.Object;
 		}
 
