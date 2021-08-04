@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Be.Stateless.BizTalk.Activity.Tracking" Version="2.0.21174.27866" />
+    <PackageReference Include="Be.Stateless.BizTalk.Activity.Tracking" Version="2.0.21189.26038" />
     <PackageReference Include="Be.Stateless.BizTalk.Messaging.Unit" Version="2.0.21171.58430" />
     <PackageReference Include="Be.Stateless.BizTalk.Transform.Unit" Version="2.0.21171.58785" />
     <PackageReference Include="BizTalk.Server.2020.Runtime" Version="1.0.1">
