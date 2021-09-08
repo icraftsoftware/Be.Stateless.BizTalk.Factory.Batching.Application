@@ -22,7 +22,12 @@ param(
    [Parameter(Mandatory = $false)]
    [ValidateNotNullOrEmpty()]
    [string]
-   $EnvironmentSettingOverridesType,
+   $EnvironmentSettingOverridesTypeName,
+
+   [Parameter(Mandatory = $false)]
+   [ValidateScript( { ($_ | Test-None) -or ($_ | Test-Path -PathType Container) } )]
+   [string[]]
+   $AssemblyProbingFolderPaths,
 
    [Parameter(Mandatory = $false)]
    [ValidateNotNullOrEmpty()]
@@ -39,7 +44,9 @@ Set-StrictMode -Version Latest
 
 ApplicationManifest -Name BizTalk.Factory.Batching -Description 'BizTalk.Factory''s batching application add-on for general purpose BizTalk Server development.' -Reference BizTalk.Factory -Build {
    Assembly -Path (Get-ResourceItem -Name Be.Stateless.BizTalk.Batching)
-   Binding -Path (Get-ResourceItem -Name Be.Stateless.BizTalk.Factory.Batching.Binding) -EnvironmentSettingOverridesType $EnvironmentSettingOverridesType
+   Binding -Path (Get-ResourceItem -Name Be.Stateless.BizTalk.Factory.Batching.Binding) `
+      -EnvironmentSettingOverridesTypeName $EnvironmentSettingOverridesTypeName `
+      -AssemblyProbingFolderPaths $AssemblyProbingFolderPaths
    Map -Path (Get-ResourceItem -Name Be.Stateless.BizTalk.Batching.Maps)
    ProcessDescriptor -Path (Get-ResourceItem -Name Be.Stateless.BizTalk.Batching) -DatabaseServer $ManagementServer
    Schema -Path (Get-ResourceItem -Name Be.Stateless.BizTalk.Batching.Schemas)
