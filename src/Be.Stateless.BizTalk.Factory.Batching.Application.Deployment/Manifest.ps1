@@ -17,7 +17,7 @@
 #endregion
 
 [CmdletBinding()]
-[OutputType([hashtable])]
+[OutputType([HashTable])]
 param(
    [Parameter(Mandatory = $false)]
    [ValidateNotNullOrEmpty()]
@@ -27,7 +27,7 @@ param(
    [Parameter(Mandatory = $false)]
    [ValidateScript( { ($_ | Test-None) -or ($_ | Test-Path -PathType Container) } )]
    [string[]]
-   $AssemblyProbingFolderPaths,
+   $AssemblyProbingFolderPaths = @(),
 
    [Parameter(Mandatory = $false)]
    [ValidateNotNullOrEmpty()]
@@ -50,6 +50,6 @@ ApplicationManifest -Name BizTalk.Factory.Batching -Description 'BizTalk.Factory
    Map -Path (Get-ResourceItem -Name Be.Stateless.BizTalk.Batching.Maps)
    ProcessDescriptor -Path (Get-ResourceItem -Name Be.Stateless.BizTalk.Batching) -DatabaseServer $ManagementServer
    Schema -Path (Get-ResourceItem -Name Be.Stateless.BizTalk.Batching.Schemas)
-   SqlDeploymentScript -Path (Get-ResourceItem -Extension .sql -Name Create.BatchingObjects) -Server $ProcessingServer
-   SqlUndeploymentScript -Path (Get-ResourceItem -Extension .sql -Name Drop.BatchingObjects) -Server $ProcessingServer
+   SqlDeploymentScript -Path (Get-ResourceItem -Extension .sql -Name Create.Batching.Objects) -Server $ProcessingServer
+   SqlUndeploymentScript -Path (Get-ResourceItem -Extension .sql -Name Drop.Batching.Objects) -Server $ProcessingServer
 }
