@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="BizTalk.Server.2020.Runtime" Version="1.0.1" ExcludeAssets="runtime" />
+    <PackageReference Include="BizTalk.Server.2020.Runtime" Version="1.0.3" ExcludeAssets="runtime" />
   </ItemGroup>
 
   <ItemGroup>
