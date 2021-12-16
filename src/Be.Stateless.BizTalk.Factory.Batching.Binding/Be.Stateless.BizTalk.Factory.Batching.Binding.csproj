@@ -25,7 +25,7 @@
 
    <ItemGroup>
      <PackageReference Include="Be.Stateless.BizTalk.Abstractions" Version="2.0.21302.29426" />
-     <PackageReference Include="Be.Stateless.BizTalk.Activity.Tracking" Version="2.0.21350.36894" />
+     <PackageReference Include="Be.Stateless.BizTalk.Activity.Tracking" Version="2.0.21350.43239" />
      <PackageReference Include="Be.Stateless.BizTalk.Dsl.Binding" Version="2.0.21349.33073" />
      <PackageReference Include="Be.Stateless.BizTalk.Dsl.Binding.Conventions" Version="2.0.21349.33073" />
      <PackageReference Include="Be.Stateless.BizTalk.Dsl.Environment.Settings" Version="2.0.21349.33073" />
